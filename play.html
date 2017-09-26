@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Garrett's Site</title>
+    <link rel="stylesheet" href="playCSS" type="text/css">
+
+    <script>
+
+        function hamburgAction(x) {
+            x.classList.toggle("change");
+        }
+
+        function hamburgHover(x) {
+            x.classList.toggle("change2");
+        }
+
+        function hamburgHoverLeave(x) {
+            x.classList.toggle("change2");
+        }
+
+        function sidebarOpen(){
+            document.getElementById("main").style.marginLeft = "18%";
+            document.getElementById("main").style.cursor = "pointer";
+            document.getElementById("overlay").style.backgroundColor="black";
+            document.getElementById("overlay").style.opacity=".5";
+            document.getElementById("mySidebar").style.visibility = "visible";
+            document.getElementById("mySidebar").style.width = "18%";
+            document.getElementById("mySidebar").style.height= "100%";
+            document.getElementById("mySidebar").style.float = "left";
+        }
+
+        function sidebarClose() {
+            document.getElementById("mySidebar").style.visibility = "hidden";
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.opacity="1";
+            document.getElementById("overlay").style.backgroundColor="transparent";
+            document.getElementById("overlay").style.opacity="1";
+            document.getElementById("mySidebar").style.height= "0";
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("main").style.float = "none";
+        }
+
+        function sidebarAction(){
+            var status=document.getElementById("mySidebar");
+            if (status.style.visibility==="hidden"){
+                sidebarOpen();
+            } else {
+                sidebarClose();
+            }
+        }
+
+        function shutMenu(){
+            var status=document.getElementById("mySidebar");
+            if (status.style.visibility==="visible") {
+                sidebarClose();
+                document.getElementById("buttonContainer").classList.toggle("change")
+            }
+        }
+
+
+    </script>
+
+  </head>
+  <body>
+
+      <div id="mySidebar" style="visibility: hidden">
+          <div id="barTitle">MENU</div>
+          <div class="allMenuItems">
+              <ul>
+                  <li class="one"><a href="#" >Home</a></li>
+                  <li class="two"><a href="#" >Projects</a></li>
+                  <li class="three"><a href="#" >Resume</a></li>
+                  <li class="four"><a href="#" >Contact</a></li>
+              </ul>
+          </div>
+          <!--
+          <div class="barItem"><a href="#" >Home <br></a></div>
+          <div class="barItem"><a href="#" >Resume <br></a></div>
+          <div class="barItem"><a href="#" >Projects <br></a></div>
+          <div class="barItem"><a href="#" >Contact <br></a></div>
+          -->
+      </div>
+
+      <div id="main">
+          <div id="overlay">
+              <!--<div id="coloredHeader">-->
+              <div class="incutHeader">
+                  <div id="buttonContainer" onmouseover="hamburgHover(this)" onmouseout="hamburgHoverLeave(this)" onclick="hamburgAction(this); sidebarAction()">
+                      <div class="bar1"></div>
+                      <div class="bar2"></div>
+                      <div class="bar3"></div>
+                  </div>
+                  <h1 class="titleLine" onclick="shutMenu()">Garrett Sutherland</h1>
+              </div>
+              <!--</div>-->
+
+              <div id="restOfPage" onclick="shutMenu()">
+                  <div id="introduction">
+                      <div class="pictureHere"></div>
+                      <div>hello</div>
+                      <div>hello</div>
+                      <div>hello</div>
+                      <div>hello</div>
+                      <div>hello</div>
+                      <div>hello</div>
+                      <div>hello</div>
+                      <div>hello</div>
+                      <div>hello</div>
+                      <div>hello</div>
+                      <div>hello</div>
+                      <div>hello</div>
+
+                      <div class="incutHeader"><h1 class="titleLine">Introduction</h1></div>
+                      <div class="coloredBlock"></div>
+                  </div>
+
+                  <div id="projects">
+
+
+
+                  </div>
+                  <div id="resume">
+                      <div class="resumeButtonContainer">
+                          <div><button class="buttonResume"><span>View</span></button></div>
+                          <div><button class="buttonResume"><span>Download</span></button></div>
+                      </div>
+                  </div>
+                  <div id="contact">
+
+
+                  </div>
+
+
+
+
+              </div>
+          </div>
+      </div>
+  </body>
+</html>

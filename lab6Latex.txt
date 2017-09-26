@@ -1,0 +1,522 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% University/School Laboratory Report
+% LaTeX Template
+% Version 3.0 (4/2/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Linux and Unix Users Group at Virginia Tech Wiki 
+% (https://vtluug.org/wiki/Example_LaTeX_chem_lab_report)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{siunitx} % Provides the \SI{}{} command for typesetting SI units
+\usepackage[]{mcode}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{subfig}
+\usepackage{enumitem}
+\usepackage{tabularx}
+
+\usepackage{graphicx} % Required for the inclusion of images
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+\renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+
+\usepackage{times} % Uncomment to use the Times New Roman font
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%----------------------------------------------------------------------------------------
+\begin{document}
+\begin{titlepage}
+\vspace*{30mm}
+\begin{center}
+\includegraphics[width=0.15\textwidth]{maryland.jpg}~\\[1cm]
+
+\textsc{\LARGE Physics 405}\\
+[1.cm]
+\textsc{\Large Experiment 6 }\\
+[0.5cm]
+
+% Title
+\rule{11.4cm}{.1pt} \\
+{ \huge \bfseries Charge to Mass Ratio of an Electron \\ }
+\rule{11.4cm}{.1pt} \\
+[.5cm]
+% Author and supervisor
+\noindent
+\begin{tabular}{p{5cm} p{6cm}}
+Author: & Garrett \textsc{Sutherland} \\
+Instructor: & Dr. Jawahery\\% Instructor/supervisor
+Dates Performed: &  September 24 \& October 1 \& October 8 \\ % Date the experiment was performed
+\end{tabular}
+\vfill
+
+% Bottom of the page
+{\large \today}
+
+\end{center}
+\end{titlepage}
+
+
+% If you wish to include an abstract, uncomment the lines below
+\begin{abstract}
+This experiment was performed to explore the charge to mass ratio of an electron using the Classen method. Relating the Lorrentz force and centripetal force the accelerated electrons experience in the vacuum chamber yields a simple formula for the charge to mass ratio for an electron. Averaging across trials with different accelerating voltages we ultimately found that $e/m=X\pm\sigma_{\text{systematic}}\pm\sigma_{\text{random}}=[1.55\pm.16\pm.00]*10^{11} \frac{\si{C}}{\si{kg}}$. The random error was computed to be $1*10^{7}\frac{\si{C}}{\si{kg}}$ but the restriction of the significant figures made the error due to random sources immaterial.. The accepted value is $1.7588*10^{11} \frac{\si{C}}{\si{kg}}$ [1], so while our data is not a direct verification at first glance it is within a little over one sigma.
+\end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+\subsection{Significance}
+\label{significances}
+The charge to mass ratio of an electron was initially measured in the 19th century by J.J. Thompson. While he did not use the same method to measure the ratio, it was a huge achievement for physics that proved the electron was a particle with both charge and mass. Furthermore, the experiment showed that the charge to mass ratio of an electron was significantly larger that of the hydrogen ion. Lastly, depending on the experiment used the charge to mass ratio is the only quantity that can be measured. Accurately determine the mass to charge ratio provided a means to calculate the mass of the electron indirectly.
+
+\subsection{Theory}
+\label{theory}
+
+\begin{description}
+\item[Centripetal Force] \hfill \\
+Because the electrons travel along a circular path (or something very close) they experience a centripetal force that is given by 
+\begin{equation}
+F =\frac{mv^2}{r} 
+\end{equation}
+
+\item[Lorrentz Force] \hfill \\
+The Lorrentz force is what balances the centripetal force and what initiates the electron along the circular path. This force is given by 
+\begin{equation}
+\vec{F}=e\vec{v} \times \vec{B}
+\end{equation}
+
+\item[Accelerating Voltage] \hfill \\
+The electrons must have some velocity for the the Lorrentz force to take effect. This is achieved by applying an accelerating voltage. This give the electrons a kinetic energy that is given by 
+\begin{equation}
+eV=\frac{mv^2}{2}
+\end{equation}
+
+\item[Charge to Mass Ratio] \hfill \\
+Equating Eq.1 and Eq.2 under the assumption that $\vec{B}$ is perpendicular to $\vec{v}$, we find that 
+\begin{equation}
+\frac{mv^2}{r} = evB \quad \implies \quad v=rB\left(\frac{e}{m}\right)
+\end{equation}
+Writing $mv^2$ in Eq. 1 in terms of variables from Eq 3. we see that
+\begin{equation}
+\frac{mv^2}{r} = \frac{2eV}{r}=evB 
+\end{equation}
+Finally plugging in $v$ from Eq. 4 and simplifying we get the simple relation for the charge to mass ratio
+\begin{equation}
+\frac{2eV}{r} = eB\frac{eBr}{m} \quad \implies \quad \frac{e}{m}=\frac{2V}{(rB)^2}
+\end{equation}
+Where $V$ is the accelerating voltage, $r$ is the radius of the circular path, and $B$ is the magnitude of the magnetic field applied.
+
+\item[Classen Method] \hfill \\
+Classen's method of determining the charge to mass ratio of an electron utilizes the previous equations and the following setup
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.5]{setup2.jpg}
+\caption{This setup sits at the end on an arm that is inserted into a vacuum chamber to ensure the mean free path is long enough that the electrons trajectory will not be altered by any ions in the chamber. }
+\end{figure}
+
+\end{description}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 2
+%----------------------------------------------------------------------------------------
+
+\section{Objectives}
+
+\begin{description}
+\item[First Objective] \hfill \\
+The objective was to determine the charge to mass ratio of an electron as accurately as possible with the experimental materials available and to methodically and accurately incorporate random and systematic errors into our measured value.
+\end{description}
+
+%----------------------------------------------------------------------------------------
+%      SECTION 3
+%----------------------------------------------------------------------------------------
+
+\section{Apparatus}
+The experiment made use of one setup. This apparatus included a vacuum chamber that was pumped out by both a mechanical vacuum pump and a diffusion pump so that vacuums of approximately $5*10^{-6} \si{ Torr}$ could be achieved. An arm with the setup in Figure 1 was inserted into the vacuum chamber and externally on the vacuum chamber where connects for high voltage input (to go to the filament and accelerate the electrons) and the Faraday cup output which was hooked up to a picoammeter so the current could be read off. \\
+
+Separately, the vacuum chamber sat in between Helmholtz coils which generated the magnetic field perpendicular to the initial velocity of the electrons. The current that drove the Helmholtz coils was connected to a ramping source so that the magnetic field could be swept to find the value at which the electrons traveled on the path through the second slit to the Faraday cup.\\
+
+Both the picoammeter, and the ramping current where connected to a computer via a Logger Pro system. This way both the output current from the picoammeter and the current driving the Helmholtz coils could be captured and recorded. This system was setup to be trigger by the start of the ramping current.
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+  \multicolumn{3}{|c|}{Materials} \\
+\hline
+High Voltage Source & High Voltage Divider Output & Small Resistor   \\ \hline
+Picoammeter & Vacuum Chamber& Logger Pro \\ \hline
+Computer & Mechanical Pump & Diffusion Pump \\\hline
+Current Ramping Source & Figure 1 setup &  Multimeter\\ \hline
+Feeler Gauges & Calipers &  Screw Driver \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[b]{.45\textwidth}
+	\includegraphics[scale=.3]{arm.jpg}
+	\caption{Arm that is inserted into the vacuum chamber}
+	\label{fig:minipage1}
+\end{minipage}
+\quad
+\begin{minipage}[b]{.45\textwidth}
+	\includegraphics[scale=.3]{pumps.jpg}
+	\caption{This is how our vacuum system was arranged. The labeled pieces will be referenced immediately below in the procedure.}
+	\label{fig:minipage2}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[b]{.45\textwidth}
+	\includegraphics[scale=.4]{HV.jpg}
+	\caption{This shows how the high voltage source is setup with the output divider so that the high voltage can safely be measured.}
+	\label{fig:minipage1}
+\end{minipage}
+\quad
+\begin{minipage}[b]{.45\textwidth}
+	\includegraphics[scale=.4]{ramp.jpg}
+	\caption{This is the setup for the current ramping source that drives the Helmholtz coils.}
+	\label{fig:minipage2}
+\end{minipage}
+\end{figure}
+
+\subsection{Experimental Setup}
+\label{Experimental Setup}
+\begin{description}
+\item[Start the Pumps]\hfill \\
+With the high vacuum and roughing valves closed and the foreline valve open start the mechanical pump. Once the TC-1 gauge reads zero the diffusion pump can be turned on. The diffusion pump will take approximately thirty minutes to warm up.
+
+\item[Set Slit Width]\hfill \\
+Before a vacuum is drawn on the experimental chamber, denoted by the bell jar above, the arm should be removed from the chamber so its elements can be inspected and set. To remove the air open the air inlet valve to ensure the chamber is not under vacuum and then close it. Remove the wing-nuts that fasten the arm inside of the chamber and remove the arm. At the end of the arm will be some setup similar to Figure 1. At this time the slit plate should be measured with the calipers by loosening the screws that enable the adjustment of the slit widths and opening the slit width as far as possible. After this measurement is made and an a random error is assigned to the measurement with the calipers the slit width can be set with feeler gauges. We found $.3 \si{mm}$ to work quite well where as smaller values ($.1 \si{mm}$) made the data noisy. The error in these slit widths will be immaterial. After the slit widths are set the arm can be reinserted into the chamber and sealed by fastening the wing-nuts.
+
+\item[Drawing Vacuum]\hfill \\
+With the arm reassembled a vacuum can begin to be drawn on the experimental chamber. To do this close the foreline, and open the roughing valve. This enables the mechanical pump to pump out the experimental chamber so the diffusion pump can be used. Once TC-2 gauge reads approximately $10^{-2} \si{Torr}$ the roughing valve can be shut, and the foreline and high vacuum valves can be opened so the diffusion pump can pump on the experimental chamber. At this time liquid nitrogen should be added to the cold trap so that the diffusion pump can pump the experimental chamber down to around $5*10^{-6} \si{Torr}$.
+
+\item[Electrical Setup]\hfill \\
+As the experimental chamber pumps down the electronics can be setup. Connect the high voltage source output to the input that is on the outside of the experimental chamber on the backside of the arm. Connect the output of the Faraday cup (also on the outside of the experimental chamber) to the input of the picoammeter via a BNC cable. Connect the Helmholtz coil to the current ramping source. Connect the Logger pro to both the current ramping source and the picoammeter. See Figures 2 through 5 for setup detail.
+
+\item[Setting the Electronics]\hfill \\
+Turn on the high voltage source, the filament current, the ramping current source, the picoammeter, and the multimeter measuring the high voltage divider output. Set the filament current to between 2.6-2.9 \si{A} and set the voltage to between 750-1500 \si{V}. Flip the toggle on the ramping current source to reset. 
+
+\end{description}
+%----------------------------------------------------------------------------------------
+%	SECTION 4
+%----------------------------------------------------------------------------------------
+
+\section{Procedure}
+\begin{description}
+
+\item[Taking Data]\hfill \\
+Within the Logger pro software zero the inputs. Record the voltage from the multimeter that measures the high voltage output divider and estimate the error. Click the record button within the Logger pro software and flip the toggle on the ramping current source to ramp as this will trigger the data collection. There should be a distinct peak in the picoammeter current when the ramping current source drives the Helmholtz coils at just the right value to cause the electrons to follow the path which results in them falling into the Faraday cup. \\
+
+For our experiment, we had the option to change: 
+\begin{enumerate}[label=(\Alph*)]
+\item Slit width of the filament/Faraday cup
+\item	Accelerating voltage 
+\item	Ramp rate of the magnetic field
+\item	Filament Current
+\end{enumerate}
+
+Indeed data should be taken with various values for each of the variables above. This ensures that data can be taken at the ideal value for each parameter as these cannot be known ahead of time. By varying each condition independent of the others we found that: turning the accelerating voltage down resulted in less noisy picoammeter data, turning the filament current down (but not below 2.65 A) also resulted in less noisy picoammeter data, increasing the ramp speed had a small effect but appeared to result in less noisy picoammeter data, and the slit width we found caused strange extra peaks when narrowed to .1\si{mm}. \\
+
+
+\end{description}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 5
+%----------------------------------------------------------------------------------------
+\section{Experimental Data}
+First, the data that needs to be collected for the analysis should be collected and the error in each measurement discussed. Below is a table of the values needed to properly conduct analysis.
+\newpage
+\begin{table}[ht]
+\centering
+\caption{Observables and their error}
+\label{my-label}
+\begin{tabular}{| c | c | c | c |}
+\hline
+Observable             & Measurement      & Error             & Error Type \\ \hline
+Calibration of B field & 4.37e-3*I+3e-5 T & 0.01e-3*I+10e-5 T & Systematic \\ \hline
+Earth's B Field        & $52 \mu$ T            & $1  \mu$ T             & Systematic \\ \hline
+Filament alignment     & -                & 5 degrees         & Systematic \\ \hline
+Arm alignment          & -                & 5 degrees         & Systematic \\ \hline
+R1                     & 1.7835 M$\Omega$        & 0.0001 M$\Omega$         & Random     \\ \hline
+R2                     & 7998 $\Omega$           & 1 $\Omega$               & Random     \\ \hline
+Distance between slits & 53.575 mm        & .003 mm           & Random     \\ \hline
+Picoammeter reading    & -                & .0075 nA          & Random     \\ \hline
+HV output reading      & -                & .005 V            & Random     \\ \hline
+Choice of Peak         & -                & 15 pts            & Random     \\ \hline
+Applied Current        & -                & 0.0033 A          & Random     \\ \hline
+\end{tabular}
+\end{table}
+Note that some observables do not have a measurement value. This is because either it cannot be measured (ie the filament alignment and the arm alignment) or the measurement varied across trials (ie the choice of the peak, the applied current, the HV output reading, and the picoammeter reading). 
+\\\\
+The uncertainty in the observables was derived in the following manner. The calibration of the magnetic field was hanging in the laboratory and thus as a calibration the error was systematic and given by the equations seen in Table 1. The Earth's magnetic field was looked up [2] and here in Maryland the value and error are as stated. The filament alignment and arm alignment refer to whether the magnetic field produced by the Helmholtz coils and the initial velocity of the electrons are truly perpendicular. We felt that a five degree error in both alignments was a responsible estimation of the error. $R1$ and $R2$ were measured by a multimeter  and the random error assigned was the fluctuation seen in the reading. The distance between slits was measured ten times at various points across the slit plate and since the error in each measurement was the same the final error in the slit plate width was via $\sigma \sqrt{10}$. The picoammeter reading and applied current errors were found by running a calibration. We flipped the toggle to ramp (to start the data collection) and instantly flipped the toggle back to reset so that effectively after two seconds the devices were measuring a null trial. The standard deviation in the data points, after the two seconds we allowed the experiment to settle, was taken as the error in the picoammeter reading and the applied current reading. The HV output reading was estimated as the fluctuations shown. Lastly the error in the choice of the peak was taken as 15 data points, or 7 data points on either side of the max value. This spread would ultimately lead to an added uncertainty in the applied current that caused the electrons to fall into the Faraday cup.\\
+
+All of our raw data is contained within an excel file which can be accessed upon request. The file includes the time, applied current and picoammeter current column vectors for each trial that was run. However, these numbers alone are not very insightful and thus were omitted. In their stead are plots from each slit width we ran the experiment at. 
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[b]{.45\textwidth}
+	\includegraphics[scale=.27]{pt1mm.jpg}
+	\caption{One data set taken with the slit width set at .1\si{mm}}
+	\label{fig:minipage1}
+\end{minipage}
+\quad
+\begin{minipage}[b]{.45\textwidth}
+	\includegraphics[scale=.27]{pt2mm.jpg}
+	\caption{One data set taken with the slit width set at .2\si{mm}}
+	\label{fig:minipage2}
+\end{minipage}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{minipage}[b]{.45\textwidth}
+	\includegraphics[scale=.27]{pt35mm.jpg}
+	\caption{One data set taken with the slit width set at .35\si{mm}}
+	\label{fig:minipage1}
+\end{minipage}
+\quad
+\begin{minipage}[b]{.45\textwidth}
+	\includegraphics[scale=.27]{750V_pt3mm.jpg}
+	\caption{One data set taken with the slit width set at .3\si{mm}}
+	\label{fig:minipage2}
+\end{minipage}
+\end{figure}
+
+It is immediately obvious that the data taken with the slit width of .3\si{mm} is the cleanness data. The data from the slit width of .1\si{mm} resulted in two peaks as shown in Figure 6. The data from the slit width of .2\si{mm} was very noisy through the current spike. The data from the slit width of .35\si{mm} was pretty good, less noisy than the data from .2\si{mm} but there is still a small second peak that precedes the major peak. However, the data taken with the slit width at .3\si{mm} is unimodal, and lacks the noise present in other trials. \\\\
+For these reasons, we ran multiple trials and two different voltages with the slit width set at .3\si{mm}. Having a clean and distinct peak enables a better determination of the applied current that drove the magnetic field at the correct value with less uncertainty. This almost data which is almost a Dirac delta function simplifies the analysis and error analysis that follows in the next section. Below are superimposed (and artificially centered) graphs of the data trials collected with a slit width of .3\si{mm} at two separate voltages. These zoomed in graphs show the data is less like a delta function that Figure 9 suggests, but the peak values are still no more than a couple data points.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[b]{.45\textwidth}
+	\includegraphics[scale=.27]{1170centered.jpg}
+	\caption{Trials take at a voltage of approximately 1170\si{V} with a slit width of .3\si{mm}. The data was artificially centered for presentation.}
+	\label{fig:minipage1}
+\end{minipage}
+\quad
+\begin{minipage}[b]{.45\textwidth}
+	\includegraphics[scale=.27]{750centered.jpg}
+	\caption{Trials take at a voltage of approximately 750\si{V} with a slit width of .3\si{mm}. The data was artificially centered for presentation.}
+	\label{fig:minipage2}
+\end{minipage}
+\end{figure}
+
+Thankfully for the .3\si{mm} slit width data the choice of the peaks was simply taken as the max value of the picoammeter current. Below are the values for the high voltage divider output and the applied current that corresponds to the peak values of picoammeter readings for all of the .3\si{mm} data. This is the data was used in the analysis.
+
+\begin{table}[]
+\centering
+\caption{Data used in analysis}
+\label{my-label}
+\begin{tabular}{| c | c | c | c | c | c | c | c | c | c | c | c | }
+\hline
+HV output divider & 3.884       & 3.888       & 3.888       & 3.885      & 3.885       & 5.221       & 5.221       & 5.224       & 5.226       & 5.221       & 5.221       \\ \hline
+Applied I         & 0.878 & 0.903 & 0.889 & 0.918 & 0.904 & 1.061 & 1.060 & 1.060 & 1.054 & 1.054 & 1.060 \\ \hline
+\end{tabular}
+\end{table}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 6
+%----------------------------------------------------------------------------------------
+
+\section{Charge to Mass Ratio Analysis}
+
+The analysis was completed in Matlab, with minor raw data manipulation done in excel (ie the 100 data points about the center used in the prior two figures). Matlab enables us to reduce errors in computing partial derivatives, and computing final values. Matlab also provides a flexible and transparent platform for data analysis.\\\\
+
+All of the data that was used in the computation of the $e/m$ ratio came from trials with the slit width set at .3\si{mm} because this data had the cleanest and most distinct peaks. This provided us with a total of 11 different trials to compute the $e/m$ ratio which we then averaged over. The code that implements Eq. 6 can be found below. It should be noted, however, that a large portion of the code has to do with the error analysis which will be explained in the following section.\\\\
+
+For each trial the high voltage had to be computed using the following formula 
+\begin{equation}
+V=V_{\text{output divider reading}} * \frac{R1+R2}{R2} \quad \si{V}
+\end{equation}
+Additionally the resulting applied magnetic field also had to be computed. This was calculated using the equation given by the calibration
+\begin{equation}
+B=4.37*10^{-3}*I+3*10^{-5} \quad \si{T}
+\end{equation}
+
+\begin{lstlisting}
+function [final_em, final_error] = exp6analysis(hemholts,HV_divider);
+em_ratio=[];
+sigma_em_ratio=[];
+
+for i=1:length(hemholts)
+% Input the data from the lab
+val_HV(i)=HV_divider(i)/(4.464420278449*10^(-3)); %convert divider volt to HV
+val_radius=53.575/2000; %radius of the arc
+sigma_radius=.003/1000;
+% Compute the B field and the error
+val_B(i)=4.37*10^(-3)*hemholts(i)+3*10^(-5);
+sigma_B(i)=.01*10^(-3)*hemholts(i)+3*10^(-5)+4.37*10^(-3)*.023+52*10^(-6);
+% Computing HV and the error
+syms r2 r1 vout;
+HV= vout*(r1+r2)/r2;
+dr1=diff(HV,r1);
+dr2=diff(HV,r2);
+dvout=diff(HV,vout);
+val_r1=1.7835*10^6;
+val_r2=7998;
+%HV_divider is vout
+sigma_HV_divider=.005;
+sigma_r1=100;
+sigma_r2=1;
+partialr1=eval(subs(dr1,{r1,r2,vout},{val_r1,val_r2,HV_divider(i)}));
+partialr2=eval(subs(dr2,{r1,r2,vout},{val_r1,val_r2,HV_divider(i)}));
+partialvout=eval(subs(dvout,{r1,r2,vout},{val_r1,val_r2,HV_divider(i)}));
+sigma_HV(i)=sqrt((partialvout*sigma_HV_divider)^2+(partialr1*sigma_r1)^2+(partialr2*sigma_r2)^2);
+% Finally compute e/m ratio and error
+syms V radius B
+em_ratio=2*HV/(radius*B)^2;
+dHV=diff(em_ratio,V);
+dradius=diff(em_ratio,radius);
+dB=diff(em_ratio,B);
+
+partialHV=eval(subs(dHV,{HV,radius,B},{val_HV(i),val_radius,val_B(i)}));
+partialradius=eval(subs(dradius,{HV,radius,B},{val_HV(i),val_radius,val_B(i)}));
+partialB=eval(subs(dB,{HV,radius,B},{val_HV(i),val_radius,val_B(i)}));
+val_em_ratio(i)=eval(subs(em_ratio,{HV,radius,B},{val_HV(i),val_radius,val_B(i)}))
+sigma_em_ratio(i)=sqrt((partialB*sigma_B(i))^2+(partialHV*sigma_HV(i))^2+(partialradius*sigma_radius)^2)
+end
+
+final_em=mean(val_em_ratio);
+final_error=mean(sigma_em_ratio)/sqrt(length(val_em_ratio))+2*.009*final_em;
+end
+\end{lstlisting}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 7
+%----------------------------------------------------------------------------------------
+
+\section{Error Analysis}
+The simple errors are given in Table 1, but for many values such as the applied magnetic field, the value of the high voltage, and ultimately the value for the charge to mass ratio of the electron must be propagated. The way in which the simple errors were propagated are described below.
+
+\subsection{Theory}
+\label{Theory}
+\begin{description}
+\item[Error Propagation] \hfill \\
+Traditional error propagation is done in accordance with the following method of error propagation: let $f$ be a function of some random variables $x$, $y$, $z$. Then its uncertainty is derived from:
+\begin{equation}
+\sigma_f=\sqrt{\left(\frac{\partial f}{\partial x}*\sigma_x\right)^2+\left(\frac{\partial f}{\partial y}*\sigma_y\right)^2+\left(\frac{\partial f}{\partial z}*\sigma_z\right)^2}
+\end{equation}
+\end{description}
+
+
+\subsection{Systematic}
+\begin{description}
+\item[Applied B Field] \hfill \\
+The error in the applied magnetic field was due to multiple sources: the calibration, the Earth's magnetic field, and the choice of the peak. The calibration provided an equation for the error in the applied magnetic field given by $0.01e-3*I+10e-5$\si{T} which was computed per trial as it depends on the applied current.The worst case (direct alignment) was assumed for Earth's magnetic field thus it contributed a $52 \mu$\si{T} error to the applied magnetic field. Lastly, the error in the choice of the peak provided a small range of applied currents which was then propagated to the applied magnetic field by using the error propagation equation applied to the equation for the measurement of the magnetic field. 
+\begin{equation}
+\sigma_{B_{\text{peak choice}}}=4.37*10^{-3}*\sigma_{I} \si{T}
+\end{equation}
+Putting all of these systematic errors together we found that 
+\begin{equation}
+\sigma_B=\sigma_{B_{\text{calibration}}}+\sigma_{B_{\text{peak choice}}}+\sigma_{B_{\text{Earth's field}}}    =\left(.01*10^{-3}*I+10^{-5}\right)+\left(4.37*10^{-3}*\sigma_{I} \right)+\left(52*10^{-6}\right) \si{T}
+\end{equation}
+
+\item[Alignment] \hfill \\
+The impact of the two alignments was computed using purely geometrical arguments. The initial 5 degrees of error causes the path of the electron to be distorted from the expected semi circle. Both $\pm$5 degrees will contact the slit plate in the same spot that is short of the second slit and the picoammeter.
+Suppose for simplicity that
+$$ V=.05 \quad \quad B=1 $$
+Then, using the following equation and using that the slit plate is 5.4cm
+$$ \frac{e}{m}=\frac{2V}{(rB)^2} \implies \frac{e}{m}=\frac{1}{r^2}=\frac{1}{2.7^2}=.137$$
+Comparing the path of the electron that is launched at a -5 degree angle to the normal electron near the collector they will cross and approximately create a triangle 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.75]{distorted_path.jpg}
+	\caption{Paths of electrons launched at non-normal angles . Note: $\pm$5 degrees end up in the same place.}
+\end{figure}
+The triangle we say has a base, along the collector of distance $\delta$ and a hypotenuse (technically an arc) of distance s. Then we define $\theta$ such that 
+$$ \delta= s \sin(\theta) \quad \quad \text{but} \quad \quad s=\theta R$$
+$$ \delta= \theta R \sin(\theta) $$
+$$ \delta= 5 * \frac{\pi}{180}* 2.7*\sin\left(5\frac{\pi}{180}\right)=.0205 \si{cm}$$
+However this discrepancy would lead to an answer of \ldots
+$$\frac{e}{m}=\frac{1}{\left(2.7-\frac{.0205}{2}\right)^2}=.13822 $$
+Thus the error in the charge to mass ratio per 5 degrees misalignment comes out to be
+$$ \frac{|.137-.13822|}{.137}=.892\%$$
+\end{description}
+
+\subsection{Random}
+\begin{description}
+\item[Instrument Fluctuations] \hfill \\
+As previously stated, $R1$, $R2$, the picoammeter reading and the applied current reading were subject to instrument noise/fluctuation. For $R1$ and $R2$ these fluctuations were directly read off the multimeter; however since we measured the high voltage indirectly we needed to propagate the error to the high voltage value. Using the propagation method as described by Eq. 9 on Eq. 7, Matlab computes the following for the error in the high voltage
+\begin{equation}
+\sigma_{V}=\sqrt{\left(\frac{\partial V}{\partial {R1}}*\sigma_{R1}\right)^2+\left(\frac{\partial V}{\partial {R2}}*\sigma_{R2}\right)^2+\left(\frac{\partial V}{\partial {V_{\text{output divider reading}}}}*\sigma_{\text{output divider reading}}\right)^2}
+\end{equation}
+The propagation for the error in the slit plate width was simpler as ten measurements were averaged thus all of the partials in Eq. 9 just became 1. Further simplifying the propagation was that the error in each individual measurement was taken to be the same, .01\si{mm}. Thus we found the error presented in Table 1:
+\begin{equation}
+\sigma_{\text{slit plate width}}=\frac{.01}{\sqrt{10}} \approx .003 \quad \si{mm}
+\end{equation}
+The fluctuations in the applied current and the picoammeter reading required us to do a calibrating null experimental run. The standard deviation of the data points after the applied current settled to zero were taken as the random background fluctuation in both readings: $0.0033$ \si{A} for the applied current and $0.0075$ \si{nA}.
+\item[Choice of Peak] \hfill \\
+Fifteen data points were taken as the error in the choice of the peak as we felt confident the true peak value fell within this range. The applied current that corresponded to the first data point was subtracted from the corresponding applied current of the last data point. This was taken as the range of applied currents that would include the true value. We found this range to be
+\begin{equation}
+\sigma_{I}=.023 \quad \si{A}
+\end{equation}
+This is the same $\sigma_{I}$ that appeared previously in Eq. 11.
+\end{description}
+
+\subsection{Code Implementation}
+Only one script was used and as it is written it does not separate between systematic and random errors. In fact, if the script above is run without the proper modification the error it reports will not only be a combination of random and systematic errors but also an improper combination. For example at the bottom of the code the error is reduced by the square root of the number of data points used; however this should only be applied to the random error. \\\\
+To use the code properly it must be run twice: once with all of the systematic errors set to zero (to get the random error), and once with all of the random errors set to zero and the square root of the data points stripped out (to get the systematic error). This is how the two separate errors were obtained from the script.
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION 8
+%----------------------------------------------------------------------------------------
+
+\section{Discussion}
+\subsection{Charge to Mass Ratio}
+The determination of the charge to mass ratio of an electron was off in a pretty significant way. We believe this had a lot to do with systematic errors. The Classen method may have more sources of errors that need to be accounted for than other methods or the discrepancy may be due to some limitations of our specific setup. The Classen method is not how the first measurement of the charge to mass ratio was measured, nor is it how the best mass spectrometers operate today to get the accepted value of $1.7588*10^{11} \frac{\si{C}}{\si{kg}}$ [1]. Still given the limitations of our system and the understanding that the errors were probably greater than we recorded we believe the ratio that we achieved of $[1.55\pm.16\pm.00]*10^{11} \frac{\si{C}}{\si{kg}}$ is almost a confirmation of the accepted value since it is within 1.31 sigma of the accepted value.
+\subsection{Error}
+While we tried to account for all of the errors that we could but there were limitation to our estimates and to our creativity in thinking about the sources of systematic errors. Given how small our random errors amounted to we truly believe the discrepancy between our value for the charge to mass ratio and that of the accepted value is due to some systematic errors that went unaccounted for. \\\\
+If our system had the flexibility of orientation then we could have aligned the magnetic field from the Helmholtz coil to the magnetic field produced by the earth thus eliminating one of our sources of systematic error. Furthermore, we likely should have conducted our own calibration of the Helmholtz coils so that we would better know how the magnetic field scaled with the applied voltage. Along with this calibration we could have tested the alignment of the coils to check that the produced magnetic field was truly orthogonal to the initial velocity of the electrons and to the direction between the two slits. This would further have reduced our systematic errors. \\\\
+If we could conduct the experiment after these fixes perhaps we would have achieved a charge to mass ratio closer to that of the accepted value. However it is my believe that our systematic errors were generously allotted for and that there is some systematic error that is escaping us. Perhaps how the electron acts when first released from the filament where it is subject to not only the magnetic field produced by the Helmholtz coils but also a changing electric field from the filament, or how the magnetic field between the Helmholtz coils is not linear especially when not directly centered. 
+%----------------------------------------------------------------------------------------
+%	SECTION 9
+%----------------------------------------------------------------------------------------
+
+\section{Conclusion}
+The objective of determining the charge to mass ratio of an electron was successfully carried out with and resulted in a value $[1.55\pm.16\pm.00]*10^{11} \frac{\si{C}}{\si{kg}}$ which when taken in the context of the limitations and unaccounted for errors is in line with the generally accepted value of $1.7588*10^{11} \frac{\si{C}}{\si{kg}}$ [1]. While our data is not the near the accuracy that can be achieve today we believe the result to be profound in the context of the Classen method we utilized. These results back when the charge to mass ratio was first being discovered could have been quite influential. \\\\
+If a more thorough experiment were to be completed with calibration and alignment of the Helmholtz coils, and more data was taken then better accuracy could likely have been achieved even with our setup. To streamline the process the Matlab code should be modified to compute the random and systematic error separately so that the code need not be adjusted each time.
+
+%----------------------------------------------------------------------------------------
+%	SECTION BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{thebibliography}{9}
+
+\bibitem{NIST}
+"CODATA Value: Electron Charge to Mass Quotient." \emph{CODATA Value: Electron Charge to Mass Quotient}. NIST, n.d. Web. 10 Oct. 2015. \textless http://physics.nist.gov/cgi-bin/cuu/Value?esme\textgreater.
+
+\bibitem{UO}
+ "Earth's Magnetic Field." \emph{Earth's Magnetic Field}. University of Oklahoma, n.d. Web. 11 Oct. 2015.   \textless http://gravmag.ou.edu/mag\_earth/mag\_earth.html\textgreater.
+
+\end{thebibliography}
+
+\end{document}
