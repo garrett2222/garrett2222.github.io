@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#E5E7E9">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Garrett's Site</title>
+    <link rel="stylesheet" href="website1CSS.css" type="text/css">
+    <!--<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $("#homeLink").click(function(){
+                var homePosition=$("#me").offset();
+               $("html,body").animate({scrollTop:homePosition.top},"slow");
+            });
+
+            $("#introLink").click(function(){
+                var introPosition=$("#intro").offset();
+               $("html,body").animate({scrollTop:introPosition.top},"slow");
+            });
+
+            $("#projectLink1").click(function(){
+                var projectPosition=$("#projects").offset();
+               $("html,body").animate({scrollTop:projectPosition.top},"slow");
+            });
+            $("#projectLink2").click(function(){
+                var projectPosition=$("#projects").offset();
+               $("html,body").animate({scrollTop:projectPosition.top},"slow");
+            });
+            $("#projectLink3").click(function(){
+                var projectPosition=$("#projects").offset();
+               $("html,body").animate({scrollTop:projectPosition.top},"slow");
+            });
+            $("#projectLink4").click(function(){
+                var projectPosition=$("#projects").offset();
+               $("html,body").animate({scrollTop:projectPosition.top},"slow");
+            });
+
+            $("#resumeLink").click(function(){
+               var resumePosition=$("#resume").offset();
+               $("html,body").animate({scrollTop:resumePosition.top},"slow");
+            });
+
+            $("#skillsLink").click(function(){
+               var skillsPosition=$("#skills").offset();
+               $("html,body").animate({scrollTop:skillsPosition.top},"slow");
+            });
+
+            $("#contactLink").click(function(){
+                var contactPosition=$("#contact").offset();
+               $("html,body").animate({scrollTop:contactPosition.top},"slow");
+            });
+
+
+        });
+    </script>
+  </head>
+  <body>
+
+      <div id="mySidebar" style="visibility: hidden">
+          <div id="barTitle">MENU</div>
+          <div class="allMenuItems">
+              <ul>
+                  <li class="one"><a id="homeLink" class="navItem" onclick="shutMenu()"><span>Home</span></a></li>
+                  <li class="two"><a id="introLink"  class="navItem" onclick="shutMenu()"><span>About Me</span></a></li>
+                  <li class="three"><a class="navItem" onclick="dropdownAction(this)"><div class="projectPanel">Projects <div id="caret">&#9660;</div></div></a>
+                      <div id="dropdownBlock" style="display:none">
+                          <ul>
+                              <li class="three"><a id="projectLink1" class="dropdownItem" onclick="shutMenu();projectAction('projectPhysics')"><span>Physics</span></a></li>
+                              <li class="three"><a id="projectLink2" class="dropdownItem" onclick="shutMenu();projectAction('projectPython')"><span>Python</span></a></li>
+                              <li class="three"><a id="projectLink3" class="dropdownItem" onclick="shutMenu();projectAction('projectLatex')"><span>LaTeX</span></a></li>
+                              <li class="three"><a id="projectLink4" class="dropdownItem" onclick="shutMenu();projectAction('projectWeb')"><span>Matlab</span></a></li>
+                          </ul>
+                      </div>
+                  </li>
+                  <li class="four"><a id="resumeLink" class="navItem" onclick="shutMenu()"><span>Resume</span></a></li>
+                  <li class="five"><a id="skillsLink" class="navItem" onclick="shutMenu()"><span>Skills</span></a></li>
+                  <li class="six"><a id="contactLink" class="navItem" onclick="shutMenu()"><span>Contact</span></a></li>
+              </ul>
+          </div>
+      </div>
+
+      <div id="main">
+          <div id="overlay">
+              <div id="buttonContainer" onmouseover="hamburgHover(this)" onmouseout="hamburgHoverLeave(this)" onclick="hamburgAction(this); sidebarAction()">
+                  <div class="bar1"></div>
+                  <div class="bar2"></div>
+                  <div class="bar3"></div>
+              </div>
+
+              <div id="me" class="section" onclick="shutMenu()">
+                  <h1 id="myname">I&#39;m Garrett.</h1>
+                  <div class="imageContainer"><img class="imgCircle" alt="picOfMe" height="300" width="300" src="me.jpg"/></div>
+              </div>
+
+
+              <div id="intro" class="section2" onclick="shutMenu()">
+                  <h2>About Me</h2>
+                  <div class="colorBlock2">
+                      <div class="paragraph">
+                          <p>
+                              Hi, I&#39;m Garrett. I&#39;m 23 years old and graduated the University of Maryland
+                              with a B.S. in Physics and a B.S. in Mathematics in 2016.
+                          </p>
+
+                          <p>
+                              Curiosity drives my life. Why are things the way they are? How does this thing work...or that!
+                              How could we build something better? I grew up flipping houses with my father, and I learned I have a
+                              love for building things. Today, I still love creating, and building (though I prefer software development
+                              over manual labor).
+
+                          </p>
+                          <p>
+                              My professional life started in finance, trading specifically. We all buy lottery tickets every now and again, right?
+                              After reassessing myself, and my abilities, I have set out to obtain a more quantitative position. Whether in finance,
+                              technology, science, engineering, or the likes, I know there is a role that will align perfectly with
+                              my education and abilities.
+                          </p>
+                      </div>
+                  </div>
+                  <br>
+                  <br>
+              </div>
+
+              <div id="projects" class="section" onclick="shutMenu()">
+                  <h2>Projects</h2>
+
+                  <div class="projectButtonContainer">
+                      <button class="projectButton" id="projectPhysics" onclick="projectAction(this.id)">Physics</button>
+                      <button class="projectButton" id="projectPython" onclick="projectAction(this.id)">Python</button>
+                      <button class="projectButton" id="projectLatex" onclick="projectAction(this.id)">LaTeX</button>
+                      <button class="projectButton" id="projectWeb" onclick="projectAction(this.id)">Matlab</button>
+                  </div>
+
+                  <div class="colorBlock3">
+                      <div class="projectBlock" id="physicsBlock">
+
+                          <div class="projectDiv">
+                              <table class="projectTable">
+                                  <tr>
+                                      <th class="tableHeader" colspan="2"><span>T</span>echnical <span>R</span>eport</th>
+                                  </tr>
+                                  <tr class="tableRow">
+                                      <td class="tableText"><p class="projectPara">Geomagnetic Storms&#39; Effect on the US Electrical Grid </p></td>
+                                      <td class="tableStuff"><form class="projectForm" method="get" action="pgTechnicalVersion.pdf"><button class="buttonProject"><span>View</span></button></form></td>
+                                  </tr>
+                              </table>
+                              <table class="projectTable">
+                                  <tr>
+                                      <th class="tableHeader" colspan="2"><span>L</span>ab <span>R</span>eports</th>
+                                  </tr>
+                                  <tr class="tableRow">
+                                      <td class="tableText"><p class="projectPara">Charge to Mass Ratio of an Electron</p></td>
+                                      <td class="tableStuff"><form class="projectForm" method="get" action="exp6Report.pdf"><button class="buttonProject"><span>View</span></button></form></td>
+                                  </tr>
+                                  <tr class="tableRow">
+                                      <td class="tableText"><p class="projectPara">Refraction of Light</p></td>
+                                      <td class="tableStuff"><form class="projectForm" method="get" action="lab1_375.pdf"><button class="buttonProject"><span>View</span></button></form></td>
+                                  </tr>
+                                  <tr class="tableRow">
+                                      <td class="tableText"><p class="projectPara">Gaussian Beam Propagation with Lenses</p></td>
+                                      <td class="tableStuff"><form class="projectForm" method="get" action="lab2_375.pdf"><button class="buttonProject"><span>View</span></button></form></td>
+                                  </tr>
+                                  <tr class="tableRow">
+                                      <td class="tableText"><p class="projectPara">Polarization of Light</p></td>
+                                      <td class="tableStuff"><form class="projectForm" method="get" action="lab3_375.pdf"><button class="buttonProject"><span>View</span></button></form></td>
+                                  </tr>
+                                  <tr class="tableRow">
+                                      <td class="tableText"><p class="projectPara">Michelson Interferometer</p></td>
+                                      <td class="tableStuff"><form class="projectForm" method="get" action="lab4_375.pdf"><button class="buttonProject"><span>View</span></button></form></td>
+                                  </tr>
+                                  <tr class="tableRow">
+                                      <td class="tableText"><p class="projectPara">Diffraction</p></td>
+                                      <td class="tableStuff"><form class="projectForm" method="get" action="lab5_375.pdf"><button class="buttonProject"><span>View</span></button></form></td>
+                                  </tr>
+                                  <tr class="tableRow">
+                                      <td class="tableText"><p class="projectPara">Spectroscopy &#38; Atomic Spectra </p></td>
+                                      <td class="tableStuff"><form class="projectForm" method="get" action="lab6_375.pdf"><button class="buttonProject"><span>View</span></button></form></td>
+                                  </tr>
+                              </table>
+                          </div>
+                      </div>
+
+                      <div class="projectBlock" id="pythonBlock">
+                          <div class="projectDiv">
+                              <table class="projectTable">
+                                  <tr>
+                                      <th class="tableHeader" colspan="2"><span>S</span>hort <span>R</span>eport <span>S</span>craper</th>
+                                  </tr>
+                                  <tr class="tableRow">
+                                      <td class="tableText" colspan="2">
+                                          <p>
+                                              As I mentioned, I worked at a proprietary trading firm. There was a good opportunity to make money when a reputable source released a new short report.
+                                              However, the trade was only really great it you could get the ticker of the report
+                                              as soon as the report was published. If you figured out the ticker 2 seconds late you would be hitting bottom prints
+                                              and get your face ripped off as market makers stepped in (until they realized what was going on).
+                                          </p>
+                                          <p>
+                                              I was dissatisfied with speed of the 3rd party scraper most traders used at the firm so I set out to build a
+                                              better one. While most websites dislike, or eventually block you, for scrapping their websites at sub-second intervals
+                                              I knew that it was possible. Using object oriented python I built a script that put each website on its on thread and
+                                              then split the threads across all four cores &mdash; again, fractions of seconds were extremely important.
+                                          </p>
+                                      </td>
+                                  </tr>
+                              </table>
+                              <div class="imageContainer">
+                                  <a href="https://github.com/garrett2222/websiteScraper" ><img class="codePic" alt="picOfScraper" src="scraperCode.jpg" style="cursor:pointer;"/></a>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="projectBlock" id="latexBlock">
+                          <p>
+                              If you checked out the physics tab you have probably seen my experience in LaTeX. Most of my lab reports in college were required
+                              to be written in LaTeX, even some of the homeworks (for the TA's convenience). Regrettably, the first week after college my computer
+                              was stolen while friends and I were out celebrating at the beach. Thus, most of the base LaTeX files for the lab reports are gone.
+                              Luckily, I found the base LaTeX file for one of the most extensive lab reports in my email. Below is the base LaTeX file for the
+                              "Charge to Mass Ratio of an Electron" under the Physics tab.
+                          </p>
+                              <table class="projectTable">
+                                  <tr class="tableRow">
+                                      <td class="tableText"><p class="projectPara">Charge to Mass Ratio of an Electron Base File</p></td>
+                                      <td class="tableStuff"><form class="projectForm" method="get" action="lab6Latex.txt"><button class="buttonProject"><span>View</span></button></form></td>
+                                  </tr>
+                              </table>
+                      </div>
+
+                      <div class="projectBlock" id="webBlock">
+                          <p>
+                              If you checked out the physics tab, you probably noticed that the majority of the analysis and simulation in done with Matlab.
+                              The technical report in particular has a simulation of what would happen to a very simplified version of the U.S. electrical grid when exposed to
+                              a large geomagnetic induced current. Below you can see that Matlab code and tinker if you would like.
+                          </p>
+                          <div class="imageContainer">
+                              <a href="https://github.com/garrett2222/usElectricalGrid" ><img class="codePic" alt="picOfData" src="usGridCode.JPG" style="cursor:pointer;"/></a>
+                          </div>
+                          <table class="projectTable">
+                              <tr>
+                                  <th class="tableHeader" colspan="2"><span>D</span>ouble <span>P</span>endulum</th>
+                              </tr>
+                              <tr class="tableRow">
+                                  <td class="tableText" colspan="2">
+                                      <p>
+                                          Because I entered the University of Maryland as a physics major, the coding
+                                          classes that I took were Matlab based. Matlab was the tool of choice for most classes that
+                                          required some analysis and data manipulation.
+                                      </p>
+
+                                      <p>
+                                          I built a program that simulated the motion of a double pendulum and output a variety of analysis about the motion as one of my first Matlab projects. It seemed
+                                          like a perfect intersection of my courses at the time. Please remember that while the code is crude this was one of my first projects using
+                                          Matlab.
+                                      </p>
+                                  </td>
+                              </tr>
+                          </table>
+                          <div class="imageContainer">
+                              <a href="https://github.com/garrett2222/doublePendulum" ><img class="codePic" alt="picOfData" src="pendulumCode.jpg" style="cursor:pointer;"/></a>
+                          </div>
+                      </div>
+
+                  </div>
+                  <br>
+                  <br>
+
+              </div>
+
+              <div id="resume" class="section2" onclick="shutMenu()">
+                  <h2>Resume</h2>
+                  <div class="resumeButtonContainer">
+                      <div class="resumeButtonDiv"><form method="get" action="resume.pdf"><button class="buttonResume"><span>View </span></button></form></div>
+                  </div>
+              </div>
+
+              <div id="skills" class="section" onclick="shutMenu()">
+                  <h2>Skills</h2>
+                  <div class="colorBlockSkills">
+                      <div class="skillsBlock">
+                          <h3><span>F</span>RONT <span>E</span>ND</h3>
+                          <div class="skillsSubclassPics">
+                              <div class="skillsPicContainer">
+                                  <img class="skillsPic" id="htmlPic" alt="picOfSkill" src="htmlPic.png"/>
+                              </div>
+                              <div class="skillsPicContainer">
+                                  <img class="skillsPic" id="cssPic" alt="picOfSkill" src="cssPic.png"/>
+                              </div>
+                              <div class="skillsPicContainer">
+                                  <img class="skillsPic" id="javascriptPic" alt="picOfSkill" src="javascriptPic.png"/>
+                              </div>
+                              <div class="skillsPicContainer">
+                                  <img class="skillsPic" id="jqueryPic" alt="picOfSkill" src="jqueryPic.png"/>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="skillsBlock">
+                          <h3><span>B</span>ACK <span>E</span>ND</h3>
+                          <div class="skillsSubclassPics">
+                              <div class="skillsPicContainer">
+                                  <img class="skillsPic" id="pythonPic" alt="picOfSkill" src="pythonPic.png"/>
+                              </div>
+                              <div class="skillsPicContainer">
+                                  <img class="skillsPic" id="matlabPic" alt="picOfSkill" src="matlabPic.png"/>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="skillsBlock">
+                          <h3><span>O</span>THER</h3>
+                          <div class="skillsSubclassPics">
+                              <div class="skillsPicContainer">
+                                  <img class="skillsPic" id="githubPic" alt="picOfSkill" src="githubPic.png"/>
+                              </div>
+                              <div class="skillsPicContainer">
+                                  <img class="skillsPic" id="sasPic" alt="picOfSkill" src="sasPic.png"/>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <br>
+                  <br>
+
+              </div>
+
+              <div id="contact" class="section2" onclick="shutMenu()">
+                  <h2>Contact Me</h2>
+                  <div class="colorBlock2">
+                        <form id="gform" class="form" method="POST" action="https://script.google.com/macros/s/AKfycbw8kXYQiVn_zdfvymAXIaRTz_l3Tt4HfnbiRSaITU5WnWmCOfqF/exec"> <!--   fill in the action site!!!  action="/action_page.php"-->
+
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" style="cursor:text" >
+
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email" style="cursor:text">
+
+                            <label for="subject">Subject</label>
+                            <textarea id="subject" name="subject" placeholder="Be nice huh...." style="height:200px;cursor:text"></textarea>
+
+                            <div id="submitButton"><button type="submit" class="buttonResume"><span>Submit</span></button></div>
+
+                        </form>
+                        <div style="display:none;" id="thankyou_message">
+                            <span>Thanks for contacting me!</span>
+                        </div>
+                  </div>
+                  <br>
+                  <br>
+              </div>
+
+          </div>
+
+      </div>
+
+      <script data-cfasync="false" type="text/javascript"
+              src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
+
+      <script>
+
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+
+        var bday=new Date("1994,1,13");
+        var today=new Date();
+        var diff=today-bday;
+        var myage=Math.floor(diff/31557600000);
+        document.getElementById("age").innerHTML=myage;
+
+        function hamburgAction(x) {
+            x.classList.toggle("change");
+        }
+
+        function hamburgHover(x) {
+            x.classList.toggle("change2");
+        }
+
+        function hamburgHoverLeave(x) {
+            x.classList.toggle("change2");
+        }
+
+        function sidebarOpen(){
+            document.getElementById("main").style.marginLeft = "130px";
+            document.getElementById("main").style.cursor = "pointer";
+            document.getElementById("overlay").style.backgroundColor="black";
+            document.getElementById("overlay").style.opacity=".5";
+            document.getElementById("mySidebar").style.visibility = "visible";
+            document.getElementById("mySidebar").style.width = "130px";
+            document.getElementById("mySidebar").style.height= "100%";
+            document.getElementById("mySidebar").style.float = "left";
+        }
+
+        function sidebarClose() {
+            document.getElementById("mySidebar").style.visibility = "hidden";
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.opacity="1";
+            document.getElementById("overlay").style.backgroundColor="transparent";
+            document.getElementById("overlay").style.opacity="1";
+            document.getElementById("mySidebar").style.height= "0";
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("main").style.float = "none";
+            document.getElementById("main").style.cursor = "default";
+        }
+
+        function sidebarAction(){
+            var status=document.getElementById("mySidebar");
+            if (status.style.visibility==="hidden"){
+                sidebarOpen();
+            } else {
+                sidebarClose();
+            }
+        }
+
+        function shutMenu(){
+            var status=document.getElementById("mySidebar");
+            if (status.style.visibility==="visible") {
+                sidebarClose();
+                document.getElementById("buttonContainer").classList.toggle("change")
+                document.getElementById("dropdownBlock").style.display="none";
+            }
+        }
+
+        function dropdownAction(x){
+            x.classList.toggle("change3");
+
+            var status=document.getElementById("dropdownBlock");
+            if (status.style.display=="none") {
+                status.style.display="block";
+            } else {
+                status.style.display="none";
+            }
+        }
+
+
+        function projectAction(clickedID){
+            if (clickedID=="projectPhysics"){
+                document.getElementById("projectPhysics").style.backgroundColor="#f4511e";
+                document.getElementById("projectPython").style.backgroundColor="grey";
+                document.getElementById("projectLatex").style.backgroundColor="grey";
+                document.getElementById("projectWeb").style.backgroundColor="grey";
+
+                document.getElementById("physicsBlock").style.display="block";
+                document.getElementById("pythonBlock").style.display="none";
+                document.getElementById("latexBlock").style.display="none";
+                document.getElementById("webBlock").style.display="none";
+
+            } else if (clickedID=="projectPython") {
+                document.getElementById("projectPhysics").style.backgroundColor="grey";
+                document.getElementById("projectPython").style.backgroundColor="#f4511e";
+                document.getElementById("projectLatex").style.backgroundColor="grey";
+                document.getElementById("projectWeb").style.backgroundColor="grey";
+
+                document.getElementById("physicsBlock").style.display="none";
+                document.getElementById("pythonBlock").style.display="block";
+                document.getElementById("latexBlock").style.display="none";
+                document.getElementById("webBlock").style.display="none";
+
+            } else if (clickedID=="projectLatex") {
+                document.getElementById("projectPhysics").style.backgroundColor="grey";
+                document.getElementById("projectPython").style.backgroundColor="grey";
+                document.getElementById("projectLatex").style.backgroundColor="#f4511e";
+                document.getElementById("projectWeb").style.backgroundColor="grey";
+
+                document.getElementById("physicsBlock").style.display="none";
+                document.getElementById("pythonBlock").style.display="none";
+                document.getElementById("latexBlock").style.display="block";
+                document.getElementById("webBlock").style.display="none";
+
+            } else {
+                document.getElementById("projectPhysics").style.backgroundColor="grey";
+                document.getElementById("projectPython").style.backgroundColor="grey";
+                document.getElementById("projectLatex").style.backgroundColor="grey";
+                document.getElementById("projectWeb").style.backgroundColor="#f4511e";
+
+                document.getElementById("physicsBlock").style.display="none";
+                document.getElementById("pythonBlock").style.display="none";
+                document.getElementById("latexBlock").style.display="none";
+                document.getElementById("webBlock").style.display="block";
+
+            }
+        }
+
+        function scrollInto(eleID){
+
+
+            if (eleID=="clickme"){
+               var e=document.getElementByID("me");
+               e.scrollIntoView();
+            }
+        }
+
+    </script>
+  </body>
+</html>
