@@ -419,7 +419,10 @@
             var status=document.getElementById("mySidebar");
             if (status.style.visibility==="visible") {
                 sidebarClose();
-                document.getElementById("buttonContainer").classList.toggle("change")
+                document.getElementById("buttonContainer").classList.toggle("change");
+               if (document.getElementById("dropdownBlock").style.display!="none"){
+                    document.getElementById("caret").classList.toggle("change3");
+                }
                 document.getElementById("dropdownBlock").style.display="none";
             }
         }
