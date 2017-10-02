@@ -194,14 +194,18 @@
                                           <p>
                                               As I mentioned, I worked at a proprietary trading firm. There was a good opportunity to make money when a reputable source released a new short report.
                                               However, the trade was only really great it you could get the ticker of the report
-                                              as soon as the report was published. If you figured out the ticker 2 seconds late you would be hitting bottom prints
-                                              and get your face ripped off as market makers stepped in (until they realized what was going on).
+                                              as soon as the report was published. If you were 2 seconds late, your prints would be very poor (skewing the risk reward) and the trade might not even be profitable.
                                           </p>
                                           <p>
-                                              I was dissatisfied with speed of the 3rd party scraper most traders used at the firm so I set out to build a
+                                              I was dissatisfied with speed and consistency of the 3rd party scraper that most traders used, so I set out to build a
                                               better one. While most websites dislike, or eventually block you, for scrapping their websites at sub-second intervals
-                                              I knew that it was possible. Using object oriented python I built a script that put each website on its on thread and
-                                              then split the threads across all four cores &mdash; again, fractions of seconds were extremely important.
+                                              I knew that it was possible. Using object oriented python I built a script that put each website on its own thread and
+                                              then split the threads across all four cores &mdash; again, fractions of seconds were extremely important. 
+                                          </p>
+                                          <p>
+                                              The scraper I built is able to check each of the eight websites that I like to scrape roughly 4 times a second. Some sites ares faster than others,
+                                              but this is due the response time of the websites&#39; servers. When a new report is posted, my scraper prints the source, the new headline, the ticker (if available),
+                                              produces an audible beep (to alert me), and opens the webpage in a new broswer window. All of these features enabled me to get to the ticker of the report and execute faster than with the 3rd party scraper.
                                           </p>
                                       </td>
                                   </tr>
