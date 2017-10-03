@@ -65,7 +65,7 @@
               <ul>
                   <li class="one"><a id="homeLink" class="navItem" onclick="shutMenu()"><span>Home</span></a></li>
                   <li class="two"><a id="introLink"  class="navItem" onclick="shutMenu()"><span>About Me</span></a></li>
-                  <li class="three"><a class="navItem" onclick="dropdownAction(this)"><div class="projectPanel">Projects <div id="caret">&#9660;</div></div></a>
+                  <li class="three"><a id="dropdownLink" class="navItem" onclick="dropdownAction(this)"><div class="projectPanel">Projects <div id="caret">&#9660;</div></div></a>
                       <div id="dropdownBlock" style="display:none">
                           <ul>
                               <li class="three"><a id="projectLink1" class="dropdownItem" onclick="shutMenu();projectAction('projectPhysics')"><span>Physics</span></a></li>
@@ -418,11 +418,11 @@
         function shutMenu(){
             var status=document.getElementById("mySidebar");
             if (status.style.visibility==="visible") {
+                if (document.getElementById("dropdownBlock").style.display=="block"){
+                    document.getElementById("dropdownLink").classList.toggle("change3");
+                }  
                 sidebarClose();
                 document.getElementById("buttonContainer").classList.toggle("change");
-               if (document.getElementById("dropdownBlock").style.display!="none"){
-                    document.getElementById("caret").classList.toggle("change3");
-                }
                 document.getElementById("dropdownBlock").style.display="none";
             }
         }
