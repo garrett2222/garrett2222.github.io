@@ -190,20 +190,20 @@
                                   <tr class="tableRow">
                                       <td class="tableText" colspan="2">
                                           <p>
-                                              I am currently working on a simple Multi-Layer forward feed neural network in python. The way the world has been going I thought I should learn about
+                                              I am currently working on a simple Multi-Layer forward feed neural network in python. The way the world has been going, I thought I should learn about
                                               neural networks and what better way to learn than to create your own! As of now, the neural network is meant to be a continuation of the short report scraper.
                                               The idea being that I can feed the network a number of stock/short report parameters on the ticker printed (returned) by the scraper. Those parameters (pulled from various sites)
                                               are run through the neural network, which spit out a guess of how far the stock should move to the downside.
                                           </p>
                                           <p>
-                                              Below is a link to the full project. It's run from the scraper, which feeds the ticker of a new short report to a data pulling python file which then feed to the neural network.
-                                              Ultimately the project returns the new short report headline, the ticker, and the neural networks guess as to how far the stock will move. As a trader each of these pieces of information
+                                              Below is a link to the full project. It's run from the scraper, which feeds the ticker of a new short report to a data pulling python file which then feeds the normalized data to the neural network.
+                                              Ultimately the project returns the new short report headline, the ticker, and the neural networks guess as to how far the stock will move. As a trader, each of these pieces of information
                                               aid my trading. However, I am currently trying to find a work around for the data pulling portion as certain tickers break the code because pandas data reader and the yahoo finance API became
                                               antiquated recently.
                                           </p>
                                           <p>
                                               Eventually, after perfecting the data pulling, and implementing some fail-safes, I hope to be able to link all of this code to Interactive Brokers as an algorithmic trading strategy.
-                                              Granted, I'll need lots of testing and lots of tweaking for everything to run smoothly through the IbPy API (and let's not forget that 10 grand to open an account) I believe it could be a very
+                                              Granted, I'll need lots of testing and tweaking for everything to run smoothly through the IbPy API (and let's not forget that 10 grand to open an account), but I do believe it could be a very
                                               profitable trading algorithm.
                                           </p>
                                       </td>
